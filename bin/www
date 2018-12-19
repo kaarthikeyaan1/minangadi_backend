@@ -24,7 +24,7 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
+console.log('Starting: @ Port =  ' + port);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -54,6 +54,7 @@ function normalizePort(val) {
  */
 
 function onError(error) {
+  console.error('Error: ' + error.code);
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -64,6 +65,7 @@ function onError(error) {
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
+    
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
       process.exit(1);
